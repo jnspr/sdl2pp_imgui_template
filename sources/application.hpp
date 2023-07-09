@@ -26,8 +26,8 @@ protected:
     SDL2pp::Window   window;
     SDL2pp::Renderer renderer;
 
-    virtual void on_event(const SDL_Event *event) = 0;
-    virtual void on_process() = 0;
-    virtual void on_draw() = 0;
-    virtual void on_gui() = 0;
+    virtual void on_event(const SDL_Event *event);
+    virtual void on_process();
+    virtual void on_draw();
+    virtual void on_gui();
 };
