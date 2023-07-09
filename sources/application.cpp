@@ -25,3 +25,22 @@ Application::~Application() {
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext(m_imgui_context);
 }
+
+void Application::run() {
+    while (m_keep_running) {
+        on_process();
+        on_draw();
+
+        ImGui_ImplSDL2_NewFrame();
+        ImGui_ImplSDLRenderer2_NewFrame();
+        ImGui::NewFrame();
+
+        on_gui();
+
+        ImGui::Render();
+        ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData());
+        renderer.Present();
+
+        poll_events();
+    }
+}
