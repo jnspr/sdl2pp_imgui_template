@@ -75,3 +75,15 @@ void Application::poll_events() {
         }
     }
 }
+
+void Application::on_event(const SDL_Event *event) {
+}
+
+void Application::on_process() {
+}
+
+void Application::on_draw() {
+}
+
+void Application::on_gui() {
+}
