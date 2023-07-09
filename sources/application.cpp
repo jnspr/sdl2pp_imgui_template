@@ -44,3 +44,34 @@ void Application::run() {
         poll_events();
     }
 }
+
+void Application::poll_events() {
+    SDL_Event event;
+
+    while (SDL_PollEvent(&event)) {
+        ImGui_ImplSDL2_ProcessEvent(&event);
+        switch (event.type) {
+            case SDL_QUIT:
+                m_keep_running = false;
+                return;
+            case SDL_MOUSEMOTION:
+            case SDL_MOUSEWHEEL:
+            case SDL_MOUSEBUTTONDOWN:
+            case SDL_MOUSEBUTTONUP:
+                if (!ImGui::GetIO().WantCaptureMouse) {
+                    on_event(&event);
+                }
+                break;
+            case SDL_TEXTINPUT:
+            case SDL_KEYDOWN:
+            case SDL_KEYUP:
+                if (!ImGui::GetIO().WantCaptureKeyboard) {
+                    on_event(&event);
+                }
+                break;
+            default:
+                on_event(&event);
+                break;
+        }
+    }
+}
