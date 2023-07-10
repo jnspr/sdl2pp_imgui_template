@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(sdl2_imgui_cpp LANGUAGES CXX)
+project(sdl2pp_imgui_template LANGUAGES CXX)
 
 set(SDL2PP_STATIC TRUE)
 set(SDL2PP_WITH_IMAGE TRUE)

@@ -5,7 +5,7 @@
 
 Application::Application():
     m_sdl(SDL_INIT_VIDEO),
-    window("sdl2_imgui_cpp",
+    window("sdl2pp_imgui_template",
              SDL_WINDOWPOS_CENTERED,
              SDL_WINDOWPOS_CENTERED,
              1280, 720,
